@@ -70,6 +70,17 @@ async def mute(ctx, member: discord.Member):
         embed=discord.Embed(title="Permission Denied.", description="You don't have permission to use this command.", color=0xff00f6)
         await bot.say(embed=embed)
 
+@bot.command(pass_context = True)
+async def unmute(ctx, member: discord.Member):
+     if ctx.message.author.server_permissions.administrator or ctx.message.author.id == '305577209970819073':
+        role = discord.utils.get(member.server.roles, name='Muted')
+        await bot.remove_roles(member, role)
+        embed=discord.Embed(title="User Unmuted!", description="**{0}** was unmuted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
+        await bot.say(embed=embed)
+     else:
+        embed=discord.Embed(title="Permission Denied.", description="You don't have permission to use this command.", color=0xff00f6)
+        await bot.say(embed=embed)
+
 @bot.command(pass_context=True)
 async def serverinfo(ctx, user: discord.Member):
     embed = discord.Embed(name="{}'s info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
