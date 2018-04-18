@@ -8,6 +8,7 @@ bot = commands.Bot("/")
 @bot.event
 async def on_ready():
     print("Bot is online Run /ping to make sure i'm fully working!")
+    await self.bot.change_presence(game=discord.Game(name="/help", type=1)) # That is the playing Status if you didnt know :D Change /help if you want.
 
 
 @bot.command(pass_context=True)
