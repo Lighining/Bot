@@ -92,4 +92,4 @@ async def warn(ctx, user: discord.Member):
     embed.set_thumbnail(url=user.avatar_url)
     await bot.say(embed=embed)
 
-bot.run("Put Your Bot Token Here")
+bot.run("Put Your Bot Token Here Do Not Use One From YouTube")
