@@ -82,6 +82,20 @@ async def unmute(ctx, member: discord.Member):
         await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
+@commands.has_role("Staff") # This must be exactly the name of the appropriate role
+async def addrole(ctx):
+    member = ctx.message.author
+    role = get(member.server.roles, name="VIP")
+    await bot.add_roles(member, role)
+
+@bot.command(pass_context=True)
+@commands.has_role("Staff") # This must be exactly the name of the appropriate role
+async def removerole(ctx):
+    member = ctx.message.author
+    role = get(member.server.roles, name="VIP")
+    await bot.remove_roles(member, role)
+
+@bot.command(pass_context=True)
 async def serverinfo(ctx, user: discord.Member):
     embed = discord.Embed(name="{}'s info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
     embed.set_author(name="Info:")
