@@ -130,4 +130,25 @@ async def warn(ctx, user: discord.Member):
     embed.set_thumbnail(url=user.avatar_url)
     await bot.say(embed=embed)
 
+@bot.command(pass_context=True)
+async def help(ctx):
+    embed = discord.Embed(title="Help info", description="Here's what I could find.", color=0x00ff00)
+    embed.add_field(name="Help", value="Show's this.", inline=True)
+    embed.add_field(name="Clear", value="Clear's X amount of messages.", inline=True)
+    embed.add_field(name="warn", value="Warn's the mentioned user.", inline=True)
+    embed.add_field(name="Ban", value="Ban's the mentioned user from the server.", inline=True)
+    embed.add_field(name="Kick", value="Kicks's the mentioned user.", inline=True)
+    embed.add_field(name="serverinfo", value="Tell's you info about the server you're currently in.", inline=True)
+    embed.add_field(name="info", value="Tell's info about the mentioned user", inline=True)
+    embed.add_field(name="Owner", value="Tell's you who the owner and developer are.", inline=True)
+    embed.add_field(name="mute", value="Mute's mentioned user.", inline=True)
+    embed.add_field(name="unmute", value="Un-mute's the mentioned user.", inline=True)
+    embed.add_field(name="addrole", value="Add's VIP role to mentioned user if it is created.", inline=True)
+    embed.add_field(name="removerole", value="Remove's VIP role from mentioned user.", inline=True)
+    embed.add_field(name="flipcoin", value="Flips a coin with Heads and Tails", inline=True)
+    embed.add_field(name="hello", value="Say's hello back", inline=True)
+    embed.add_field(name="ping", value="Ping's the bot and the bot says Pong!", inline=True)
+    await bot.say(embed=embed)
+
+
 bot.run("Put Your Bot Token Here Do Not Use One From YouTube")
