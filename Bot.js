@@ -60,6 +60,7 @@ async def info(ctx, user: discord.Member):
     embed.set_thumbnail(url=user.avatar_url)
     await bot.say(embed=embed)
 
+
 @bot.command(pass_context = True)
 async def mute(ctx, member: discord.Member):
      if ctx.message.author.server_permissions.administrator or ctx.message.author.id == '194151340090327041':
@@ -131,6 +132,16 @@ async def warn(ctx, user: discord.Member):
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
+async def members(ctx):
+    amount = len(ctx.message.server.members)
+    await bot.say('There are ' + str(amount) + ' members.')
+
+@bot.command(pass_context=True)
+async def invite(ctx):
+    await bot.say("Sorry, but this is a private bot for us only!")
+    print ("User Wanted Our Bot")
+
+@bot.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Help info", description="Here's what I could find.", color=0x00ff00)
     embed.add_field(name="Help", value="Show's this.", inline=True)
@@ -148,6 +159,8 @@ async def help(ctx):
     embed.add_field(name="flipcoin", value="Flips a coin with Heads and Tails", inline=True)
     embed.add_field(name="hello", value="Say's hello back", inline=True)
     embed.add_field(name="ping", value="Ping's the bot and the bot says Pong!", inline=True)
+    embed.add_field(name="members", value="Say's how many members there are.", inline=True)
+    embed.add_field(name="invite", value="Says the bot invite if put in the text spot", inline=True)
     await bot.say(embed=embed)
 
 
